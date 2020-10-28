@@ -1,9 +1,14 @@
 'use strict'
 
-let bands = ['Группа-Один', 'Группа Два', 'Группа?Три']
+let bands = ['Группа-Один', 'ГРуппа два', 'Группа?Три', 'the BEST band']
 
 let bandsChange = bands.map(function (item) {
-  return `#${item}`.replace([ЁёА - я], '').toLowerCase()
+  return `#${item}`
+    .replace(/\W+/g, ' ')
+    .toLowerCase()
+    .split(' ')
+    .map((word, index) => word[0].toUpperCase() + word.slice(1))
+    .join('')
 })
 
 console.log(bandsChange)
